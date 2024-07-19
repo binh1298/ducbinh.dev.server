@@ -82,6 +82,7 @@
     docker
     docker-compose
     tmux
+    btop
   ];
 
   virtualisation.docker.enable = true;
@@ -105,8 +106,8 @@
   services.openssh.settings.PermitRootLogin = "yes";
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [22 80 443];
-  networking.firewall.allowedUDPPorts = [22 80 443];
+  networking.firewall.allowedTCPPorts = [22 80 443 5432 9090 8080];
+  networking.firewall.allowedUDPPorts = [22 80 443 5432 9090 8080];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
 
