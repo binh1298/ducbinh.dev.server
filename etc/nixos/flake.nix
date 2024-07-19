@@ -24,15 +24,15 @@
             environment.systemPackages = [];
           }
           ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = false;
-              extraSpecialArgs = {inherit inputs;};
-              users.ducbinh = ./home/server.nix;
-            };
-          }
+          # home-manager.nixosModules.home-manager
+          # {
+          #   home-manager = {
+          #     useGlobalPkgs = true;
+          #     useUserPackages = false;
+          #     extraSpecialArgs = {inherit inputs;};
+          #     users.ducbinh = ./home/server.nix;
+          #   };
+          # }
         ];
       };
     };
