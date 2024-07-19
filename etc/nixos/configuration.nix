@@ -82,6 +82,7 @@
     docker
     docker-compose
     tmux
+    btop
   ];
 
   virtualisation.docker.enable = true;
