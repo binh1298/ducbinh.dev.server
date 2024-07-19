@@ -1,0 +1,26 @@
+apiVersion: 1
+
+deleteDatasources:
+  - name: pg-ducbinh-dev
+    orgId: 1
+  - name: Prometheus
+    orgId: 1
+
+datasources:
+  - name: pg-ducbinh-dev
+    type: postgres
+    access: proxy
+    url: postgres:5432
+    user: ${POSTGRES_USER}
+    secureJsonData:
+      password: ${POSTGRES_PASSWORD}
+    database: ${POSTGRES_DB}
+    jsonData:
+      sslmode: disable
+    uid: pg-ducbinh-dev-id
+  - name: prometheus-ducbinh-dev
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    uid: prometheus-ducbinh-dev-id
+
