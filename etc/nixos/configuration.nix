@@ -65,7 +65,7 @@
   users.users.ducbinh = {
     isNormalUser = true;
     description = "ducbinh";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [];
   };
 
@@ -78,7 +78,17 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
+    bash
+    docker
+    docker-compose
+    tmux
   ];
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -98,7 +108,7 @@
   networking.firewall.allowedTCPPorts = [22 80 443];
   networking.firewall.allowedUDPPorts = [22 80 443];
   # Or disable the firewall altogether.
-  #networking.firewall.enable = true;
+  networking.firewall.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
